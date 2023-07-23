@@ -15,16 +15,25 @@ firebase.initializeApp({
   messagingSenderId: "659406924013"
 });
 var database = firebase.database();
-var counter = 0;
 var counterRef = database.ref("counter");
+
+var counter = 0;
+
+// Listen for changes to the counter
 counterRef.on("value", function(snapshot) {
+  // Get the current value of the counter
   var counter = snapshot.val();
+
+  // Increment the counter
   counter++;
+
+  // Update the counter in the realtime database
   counterRef.set(counter);
 });
+
 document.querySelector("a").addEventListener("click", function() {
   counter++;
-  database.ref("counter").set(counter);
+  counterRef.set(counter);
   window.open("https://heavietnam.gitbook.io");
 });
 </script>
