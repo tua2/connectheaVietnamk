@@ -16,6 +16,12 @@ firebase.initializeApp({
 });
 var database = firebase.database();
 var counter = 0;
+var counterRef = database.ref("counter");
+counterRef.on("value", function(snapshot) {
+  var counter = snapshot.val();
+  counter++;
+  counterRef.set(counter);
+});
 document.querySelector("a").addEventListener("click", function() {
   counter++;
   database.ref("counter").set(counter);
