@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Direct to Hea VietNam</title>
+</head>
+<body>
+<a href="https://heavietnam.gitbook.io" target="_blank">Click here to visit Hea VietNam</a>
+<script src="https://www.gstatic.com/firebasejs/8.2.2/firebase.js"></script>
+<script>
+firebase.initializeApp({
+  apiKey: "AIzaSyD5EgqfmSuB6LfaTUl0FOb4DGV0VCy5APA",
+  authDomain: "count-6b8d2.firebaseapp.com",
+  projectId: "count-6b8d2",
+  storageBucket: "count-6b8d2.appspot.com",
+  messagingSenderId: "659406924013"
+});
+var database = firebase.database();
+var counter = 0;
+document.querySelector("a").addEventListener("click", function() {
+  counter++;
+  database.ref("counter").set(counter);
+  window.open("https://heavietnam.gitbook.io");
+});
+</script>
+</body>
+</html>
